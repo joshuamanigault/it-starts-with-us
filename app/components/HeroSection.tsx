@@ -3,30 +3,17 @@ import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section className="relative flex min-h-[calc(100vh-4rem)] w-full items-center justify-center bg-[#F5F1E8] dark:bg-zinc-900">
+    <section className="relative flex min-h-[calc(100vh-4rem)] w-full items-center justify-center bg-[#F5F1E8]">
       <div className="container mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
           {/* Logo */}
           <div className="mb-8 flex flex-col items-center gap-4">
             <div className="relative h-32 w-32 sm:h-40 sm:w-40">
-              <Image
-                src="/images/ItStartsWithUs_logo.png"
-                alt="It Starts With Us Logo"
-                width={160}
-                height={160}
-                className="h-32 w-32 sm:h-40 sm:w-40"
-                priority
-              />
             </div>
-            <h2 className="text-2xl font-bold tracking-wide text-black dark:text-white sm:text-3xl">
-              IT STARTS
-              <br />
-              WITH US
-            </h2>
           </div>
 
           {/* Headline */}
-          <h1 className="mb-8 max-w-2xl text-4xl font-bold leading-tight tracking-tight text-black dark:text-white sm:text-5xl lg:text-6xl">
+          <h1 className="mb-8 max-w-2xl text-4xl font-bold leading-tight tracking-tight text-[#1A1A1A] sm:text-5xl lg:text-6xl font-serif">
             Building stronger communities,
             <br />
             one student at a time
