@@ -4,183 +4,98 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full border-t border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
-      <div className="container mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="w-full border-t border-zinc-800 bg-[#1A1A1A]">
+      <div className="container mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {/* Brand Section */}
-          <div className="space-y-3">
-            <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold text-white">
               It Starts With Us
             </h3>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">
-              Building something amazing together.
+            <p className="text-sm text-neutral-300 max-w-xs">
+              Empowering students to make a difference in their communities through meaningful volunteer opportunities.
             </p>
           </div>
 
-          {/* Links Section */}
-          <div className="space-y-3">
-            <h4 className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">
-              Product
+          {/* Quick Links */}
+          <div className="space-y-4">
+            <h4 className="text-sm font-semibold text-white uppercase tracking-wider">
+              Quick Links
             </h4>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="#features"
-                  className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
-                >
-                  Features
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#pricing"
-                  className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
-                >
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#testimonials"
-                  className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
-                >
-                  Testimonials
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Company Section */}
-          <div className="space-y-3">
-            <h4 className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">
-              Company
-            </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               <li>
                 <Link
                   href="#about"
-                  className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
+                  className="text-sm text-neutral-300 hover:text-[#003E65] transition-colors"
                 >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#blog"
-                  className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#careers"
-                  className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
-                >
-                  Careers
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Legal Section */}
-          <div className="space-y-3">
-            <h4 className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">
-              Legal
-            </h4>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="#privacy"
-                  className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
-                >
-                  Privacy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#terms"
-                  className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
-                >
-                  Terms
+                  About Us
                 </Link>
               </li>
               <li>
                 <Link
                   href="#contact"
-                  className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
+                  className="text-sm text-neutral-300 hover:text-[#003E65] transition-colors"
                 >
                   Contact
                 </Link>
               </li>
+              {/* Space for future links */}
+              {/* Uncomment as needed:
+              <li>
+                <Link
+                  href="#blog"
+                  className="text-sm text-neutral-600 hover:text-[#003E65] transition-colors"
+                >
+                  Blog
+                </Link>
+              </li>
+              */}
             </ul>
+          </div>
+
+          {/* Connect Section */}
+          <div className="space-y-4">
+            <h4 className="text-sm font-semibold text-white uppercase tracking-wider">
+              Connect
+            </h4>
+            <div className="flex gap-4">
+              <a
+                href="https://www.instagram.com/_itstartswithusorg/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center h-10 w-10 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300 hover:bg-[#E4405F] hover:text-white hover:border-[#E4405F] transition-all duration-300 shadow-sm hover:shadow-md"
+                aria-label="Follow us on Instagram"
+              >
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fillRule="evenodd" d="M12.017 0C8.396 0 7.929.013 7.794.048 2.51.252.252 2.51.048 7.794.013 7.929 0 8.396 0 12.017c0 3.621.013 4.088.048 4.223.204 5.284 2.462 7.542 7.746 7.746.135.035.602.048 4.223.048 3.621 0 4.088-.013 4.223-.048 5.284-.204 7.542-2.462 7.746-7.746.035-.135.048-.602.048-4.223 0-3.621-.013-4.088-.048-4.223C23.782 2.462 21.524.204 16.24.048 16.105.013 15.638 0 12.017 0zm0 2.16c3.557 0 3.98.013 5.386.075 1.3.059 2.004.275 2.472.458.621.242 1.064.531 1.531.998.466.466.756.91.998 1.531.183.468.399 1.172.458 2.472.062 1.406.075 1.829.075 5.386 0 3.557-.013 3.98-.075 5.386-.059 1.3-.275 2.004-.458 2.472-.242.621-.531 1.064-.998 1.531-.466.466-.91.756-1.531.998-.468.183-1.172.399-2.472.458-1.406.062-1.829.075-5.386.075-3.557 0-3.98-.013-5.386-.075-1.3-.059-2.004-.275-2.472-.458-.621-.242-1.064-.531-1.531-.998-.466-.466-.756-.91-.998-1.531-.183-.468-.399-1.172-.458-2.472C2.173 15.997 2.16 15.574 2.16 12.017c0-3.557.013-3.98.075-5.386.059-1.3.275-2.004.458-2.472.242-.621.531-1.064.998-1.531.466-.466.91-.756 1.531-.998.468-.183 1.172-.399 2.472-.458C8.037 2.173 8.46 2.16 12.017 2.16zm0 3.373c-3.706 0-6.717 3.01-6.717 6.717 0 3.706 3.01 6.717 6.717 6.717 3.706 0 6.717-3.01 6.717-6.717 0-3.706-3.01-6.717-6.717-6.717zm0 11.073c-2.404 0-4.356-1.952-4.356-4.356 0-2.404 1.952-4.356 4.356-4.356 2.404 0 4.356 1.952 4.356 4.356 0 2.404-1.952 4.356-4.356 4.356zm6.584-11.845c-.863 0-1.562-.699-1.562-1.562 0-.863.699-1.562 1.562-1.562.863 0 1.562.699 1.562 1.562 0 .863-.699 1.562-1.562 1.562z" clipRule="evenodd" />
+                </svg>
+              </a>
+              {/* Space for future social links */}
+              {/* Uncomment and modify as needed:
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center h-10 w-10 rounded-full bg-white border border-neutral-300 text-neutral-600 hover:bg-[#1DA1F2] hover:text-white hover:border-[#1DA1F2] transition-all duration-300 shadow-sm hover:shadow-md"
+                aria-label="Follow us on Twitter"
+              >
+                <!-- Twitter Icon -->
+              </a>
+              */}
+            </div>
           </div>
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-8 border-t border-zinc-200 pt-8 dark:border-zinc-800">
+        <div className="mt-12 border-t border-neutral-700 pt-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">
+            <p className="text-sm text-neutral-300">
               © {currentYear} It Starts With Us. All rights reserved.
             </p>
-            <div className="flex gap-6">
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
-                aria-label="Twitter"
-              >
-                <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                </svg>
-              </a>
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
-                aria-label="GitHub"
-              >
-                <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
-                aria-label="LinkedIn"
-              >
-                <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </a>
-            </div>
+            <p className="text-xs text-neutral-400">
+              Building stronger communities, one student at a time.
+            </p>
           </div>
         </div>
       </div>
