@@ -2,19 +2,48 @@
 
 import { useState } from "react";
 import { Instagram } from "lucide-react";
+import { supabaseClient } from "@/lib/supabaseClient";
 
 export default function WaitlistSection() {
   const [email, setEmail] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Add your waitlist submission logic here
-    setIsSubmitted(true);
-    setEmail("");
+    setStatus("loading");
+    setMessage("");
+
+    try {
+      console.log("Submitting email:", email);
+      
+      const { data, error } = await supabaseClient.from("waitlist").insert([{ email }]);
+
+      if (error) {
+        console.error("Supabase error:", error);
+        setStatus("error");
+        
+        // More specific error messages
+        if (error.code === '23505') {
+          setMessage("This email is already on the waitlist.");
+        } else if (error.message.includes('Invalid input')) {
+          setMessage("Please enter a valid email address.");
+        } else {
+          setMessage(`Error: ${error.message}`);
+        }
+      } else {
+        console.log("Success! Data:", data);
+        setStatus("success");
+        setMessage("Thank you for joining the waitlist!");
+        setEmail("");
+      }
+    } catch (err) {
+      console.error("Unexpected error:", err);
+      setStatus("error");
+      setMessage("An unexpected error occurred. Please try again.");
+    }
     
-    // Reset after 3 seconds
-    setTimeout(() => setIsSubmitted(false), 3000);
+    
   };
 
   return (
@@ -40,7 +69,7 @@ export default function WaitlistSection() {
           <h1 className="mb-6 max-w-3xl text-4xl font-bold leading-tight tracking-tight text-[#1A1A1A] sm:text-5xl lg:text-6xl">
             It Starts With Us
             <br />
-            <span className="bg-gradient-to-r from-[#003E65] to-[#1A1A1A] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-[#003E65] to-[#1A1A1A] bg-clip-text text-transparent">
               Volunteer Portal
             </span>
             <br />
@@ -73,10 +102,17 @@ export default function WaitlistSection() {
               />
               <button
                 type="submit"
-                disabled={isSubmitted}
+                disabled={status === "loading"}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#1A1A1A] px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
               >
-                {isSubmitted ? (
+                {status === "loading" ? (
+                  <>
+                    <svg className="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                    Submitting...
+                  </>
+                ) : status === "success" ? (
                   <>
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -93,6 +129,17 @@ export default function WaitlistSection() {
                 )}
               </button>
             </form>
+
+            {/* Status Message */}
+            {message && (
+              <div className={`mt-4 p-3 rounded-lg text-sm ${
+                status === "success" 
+                  ? "bg-green-50 text-green-700 border border-green-200" 
+                  : "bg-red-50 text-red-700 border border-red-200"
+              }`}>
+                {message}
+              </div>
+            )}
           </div>
 
           {/* Social Footer */}
