@@ -48,12 +48,6 @@ export default function WaitlistSection() {
 
   return (
     <section id="waitlist" className="relative flex min-h-screen w-full items-center justify-center bg-neutral-100 overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-20 left-10 w-2 h-2 bg-zinc-400/30 rounded-full animate-pulse" />
-      <div className="absolute top-40 right-20 w-2 h-2 bg-zinc-400/30 rounded-full animate-pulse delay-75" />
-      <div className="absolute bottom-40 left-20 w-2 h-2 bg-zinc-400/30 rounded-full animate-pulse delay-150" />
-      <div className="absolute bottom-20 right-10 w-2 h-2 bg-zinc-400/30 rounded-full animate-pulse delay-300" />
-
       <div className="container mx-auto max-w-2xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
           {/* Badge */}

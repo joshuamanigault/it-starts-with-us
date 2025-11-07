@@ -19,33 +19,30 @@ export default function Header() {
           </Link>
         </div>
 
-        <nav className="flex items-center gap-6">
-          <Link
-            href="#about"
-            className="text-sm font-medium text-[#1A1A1A] underline underline-offset-4 transition-colors hover:text-[#003E65] hover:no-underline"
-          >
-            About
-          </Link>
-          <Link
-            href="#features"
-            className="text-sm font-medium text-[#1A1A1A] underline underline-offset-4 transition-colors hover:text-[#003E65] hover:no-underline"
-          >
-            Features
-          </Link>
-          <Link
-            href="#contact"
-            className="text-sm font-medium text-[#1A1A1A] underline underline-offset-4 transition-colors hover:text-[#003E65] hover:no-underline"
-          >
-            Contact
-          </Link>
-        </nav>
+        <div className="flex items-center gap-6">
+          <nav className="flex items-center gap-6">
+            <Link
+              href="/#about"
+              className="text-sm font-medium text-[#1A1A1A] underline underline-offset-4 transition-colors hover:text-[#003E65] hover:no-underline"
+            >
+              About
+            </Link>
 
-        <a
-          href="#waitlist"
-          className="hidden sm:inline-flex items-center justify-center rounded-lg bg-[#1A1A1A] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800"
-        >
-          Get Involved
-        </a>
+            <Link
+              href="/contact"
+              className="text-sm font-medium text-[#1A1A1A] underline underline-offset-4 transition-colors hover:text-[#003E65] hover:no-underline"
+            >
+              Contact
+            </Link>
+          </nav>
+
+          <a
+            href="\#waitlist"
+            className="hidden sm:inline-flex items-center justify-center rounded-lg bg-[#1A1A1A] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800"
+          >
+            Get Involved
+          </a>
+        </div>
       </div>
     </header>
   );

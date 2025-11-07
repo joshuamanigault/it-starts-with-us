@@ -1,34 +1,20 @@
 import Image from "next/image";
 
-interface Founder {
-  name: string;
-  title: string;
-  bio: string;
-  image?: string;
-}
-
-interface AboutSectionProps {
-  founders?: Founder[];
-}
-
-export default function AboutSection({ founders }: AboutSectionProps) {
-  // Default founders data if not provided via props
-  const defaultFounders: Founder[] = [
+export default function AboutSection() {
+  const founders = [
     {
       name: "Ethan Edouard",
       title: "Co-Founder & Executive Director",
       bio: "Passionate about creating meaningful change through community engagement and educational empowerment.",
-      image: "/images/founder1.jpg" // Placeholder path
+      image: "/images/founder1.jpg"
     },
     {
       name: "Joshua Manigault", 
       title: "Co-Founder & Technical Director",
       bio: "Dedicated to building innovative solutions that connect students with impactful volunteer opportunities.",
-      image: "/images/founder2.jpg" // Placeholder path
+      image: "/images/founder2.jpg"
     }
   ];
-
-  const foundersData = founders || defaultFounders;
 
   return (
     <section id="about" className="relative w-full bg-neutral-100 py-16 lg:py-24">
@@ -46,7 +32,7 @@ export default function AboutSection({ founders }: AboutSectionProps) {
           
           {/* Left Column - Founder Photos */}
           <div className="space-y-8">
-            {foundersData.map((founder, index) => (
+            {founders.map((founder, index) => (
               <div 
                 key={index}
                 className="flex items-center gap-6 p-6 rounded-2xl bg-neutral-50 hover:bg-neutral-100 transition-colors duration-300"
@@ -112,11 +98,11 @@ export default function AboutSection({ founders }: AboutSectionProps) {
             {/* Mission Statement */}
             <div className="rounded-2xl bg-linear-to-br from-neutral-100 via-[#003E65]/10 to-blue-100 p-8 shadow-sm border border-[#003E65]/20">
               <h4 className="mb-4 text-xl font-semibold text-[#1A1A1A]">
-                Our Mission
+                Our Vision
               </h4>
               <p className="text-lg leading-relaxed text-neutral-700 font-medium">
-                "Our mission is to make tracking volunteer hours simple, transparent, 
-                and impactful for both students and organizations."
+                "Our vision is to create a network of student volunteers  who strengthen their
+                communities while developing the skills, compassion and leadership needed to shape the future."
               </p>
             </div>
           </div>

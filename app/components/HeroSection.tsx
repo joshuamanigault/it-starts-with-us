@@ -53,7 +53,7 @@ export default function HeroSection() {
                   Get Involved
                 </a>
                 <a
-                  href="#contact"
+                  href="\contact"
                   className="inline-flex items-center justify-center rounded-lg border-2 border-neutral-300 bg-transparent px-6 py-3 text-base font-medium text-[#1A1A1A] transition-all duration-300 hover:border-[#1A1A1A] hover:bg-neutral-50 hover:scale-105 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] focus:ring-offset-2 transform active:scale-95"
                 >
                   Get in Touch
